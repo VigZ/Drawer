@@ -9,13 +9,14 @@
 /* Begin PBXBuildFile section */
 		80461617253B8916006B9164 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80461616253B8916006B9164 /* AppDelegate.swift */; };
 		80461619253B8916006B9164 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80461618253B8916006B9164 /* SceneDelegate.swift */; };
-		8046161B253B8916006B9164 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8046161A253B8916006B9164 /* ViewController.swift */; };
 		8046161E253B8916006B9164 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8046161C253B8916006B9164 /* Main.storyboard */; };
 		80461621253B8916006B9164 /* Drawer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8046161F253B8916006B9164 /* Drawer.xcdatamodeld */; };
 		80461623253B8917006B9164 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80461622253B8917006B9164 /* Assets.xcassets */; };
 		80461626253B8917006B9164 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80461624253B8917006B9164 /* LaunchScreen.storyboard */; };
 		80461631253B8917006B9164 /* DrawerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80461630253B8917006B9164 /* DrawerTests.swift */; };
 		8046163C253B8917006B9164 /* DrawerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8046163B253B8917006B9164 /* DrawerUITests.swift */; };
+		8046164E253E4534006B9164 /* DrawerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8046164D253E4534006B9164 /* DrawerTableViewController.swift */; };
+		80461656253E485E006B9164 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80461655253E485E006B9164 /* DatabaseManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +40,6 @@
 		80461613253B8916006B9164 /* Drawer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Drawer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80461616253B8916006B9164 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80461618253B8916006B9164 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8046161A253B8916006B9164 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8046161D253B8916006B9164 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		80461620253B8916006B9164 /* Drawer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Drawer.xcdatamodel; sourceTree = "<group>"; };
 		80461622253B8917006B9164 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +51,8 @@
 		80461637253B8917006B9164 /* DrawerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrawerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8046163B253B8917006B9164 /* DrawerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerUITests.swift; sourceTree = "<group>"; };
 		8046163D253B8917006B9164 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8046164D253E4534006B9164 /* DrawerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerTableViewController.swift; sourceTree = "<group>"; };
+		80461655253E485E006B9164 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,14 +103,18 @@
 		80461615253B8916006B9164 /* Drawer */ = {
 			isa = PBXGroup;
 			children = (
+				8046165C253E54E5006B9164 /* Controllers */,
+				8046165B253E54DB006B9164 /* Views */,
+				8046165A253E54CC006B9164 /* Models */,
 				80461616253B8916006B9164 /* AppDelegate.swift */,
 				80461618253B8916006B9164 /* SceneDelegate.swift */,
-				8046161A253B8916006B9164 /* ViewController.swift */,
+				8046164D253E4534006B9164 /* DrawerTableViewController.swift */,
 				8046161C253B8916006B9164 /* Main.storyboard */,
 				80461622253B8917006B9164 /* Assets.xcassets */,
 				80461624253B8917006B9164 /* LaunchScreen.storyboard */,
 				80461627253B8917006B9164 /* Info.plist */,
 				8046161F253B8916006B9164 /* Drawer.xcdatamodeld */,
+				80461655253E485E006B9164 /* DatabaseManager.swift */,
 			);
 			path = Drawer;
 			sourceTree = "<group>";
@@ -129,6 +135,27 @@
 				8046163D253B8917006B9164 /* Info.plist */,
 			);
 			path = DrawerUITests;
+			sourceTree = "<group>";
+		};
+		8046165A253E54CC006B9164 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8046165B253E54DB006B9164 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8046165C253E54E5006B9164 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,7 +289,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				80461621253B8916006B9164 /* Drawer.xcdatamodeld in Sources */,
-				8046161B253B8916006B9164 /* ViewController.swift in Sources */,
+				8046164E253E4534006B9164 /* DrawerTableViewController.swift in Sources */,
+				80461656253E485E006B9164 /* DatabaseManager.swift in Sources */,
 				80461617253B8916006B9164 /* AppDelegate.swift in Sources */,
 				80461619253B8916006B9164 /* SceneDelegate.swift in Sources */,
 			);
