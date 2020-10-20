@@ -93,6 +93,9 @@ class DrawerTableViewController: UITableViewController, UISearchControllerDelega
         else {
             doodad = doodads[indexPath.row]
         }
+        
+        vc.doodad = doodad
+        
         navigationController?.pushViewController(vc, animated: true)
     }
     
