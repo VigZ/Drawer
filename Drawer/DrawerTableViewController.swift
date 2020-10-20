@@ -8,15 +8,31 @@
 import UIKit
 import CoreData
 
-class DrawerTableViewController: UITableViewController {
+class DrawerTableViewController: UITableViewController, UISearchControllerDelegate {
     
-    var doodads = [NSManagedObject]()
+    var doodads = [Doodad]()
+    var filteredDoodads = [Doodad]()
+    
+    let searchController = UISearchController(searchResultsController: nil)
+    
+    var isSearchBarEmpty: Bool {
+      return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
     let dbManager = DatabaseManager.shareInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        doodads = dbManager.fetchObjects(entityDescription: "Doodad")
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Doodads"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        
+        
+        
+        doodads = dbManager.fetchObjects(entityDescription: "Doodad").compactMap { $0 as? Doodad }
         
         
         // Uncomment the following line to preserve selection between presentations
@@ -47,6 +63,14 @@ class DrawerTableViewController: UITableViewController {
 
 
         return cell
+    }
+    
+    func filterContentForSearchText(_ searchText: String) {
+      filteredDoodads = doodads.filter { (doodad: Doodad) -> Bool in
+        return doodad.name!.lowercased().contains(searchText.lowercased())
+      }
+      
+      tableView.reloadData()
     }
     
 
@@ -95,4 +119,12 @@ class DrawerTableViewController: UITableViewController {
     }
     */
 
+}
+
+extension DrawerTableViewController: UISearchResultsUpdating {
+  func updateSearchResults(for searchController: UISearchController) {
+    
+    let searchBar = searchController.searchBar
+    filterContentForSearchText(searchBar.text!)
+  }
 }
