@@ -18,16 +18,6 @@ class DrawerTableViewController: UITableViewController {
         
         doodads = dbManager.fetchObjects(entityDescription: "Doodad")
         
-        let dict = [
-            "name": "Test7",
-            "quantity": 32
-            
-            
-        ] as [String : Any]
-        dbManager.saveObject(dataMap:dict, entityDescription:"Doodad")
-        
-        print("Object created")
-        
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

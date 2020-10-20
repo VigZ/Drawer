@@ -23,6 +23,7 @@ class DatabaseManager {
                                      insertInto: managedContext)
         
         for (key,value) in dataMap {
+            // Should add saftey check to see if object has the property i am trying to set.
             newObject.setValue(value, forKeyPath: key)
         }
         
