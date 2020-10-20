@@ -28,6 +28,8 @@ class DrawerTableViewController: UITableViewController, UISearchControllerDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewDoodad))
+        
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search Doodads"
@@ -97,6 +99,13 @@ class DrawerTableViewController: UITableViewController, UISearchControllerDelega
         vc.doodad = doodad
         
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func addNewDoodad(){
+        let vc = storyboard?.instantiateViewController(withIdentifier: "CreateDoodad") as! CreateDoodadViewController
+        
+        navigationController?.pushViewController(vc, animated: true)
+        
     }
     
 
