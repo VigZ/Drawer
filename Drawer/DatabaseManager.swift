@@ -46,4 +46,14 @@ class DatabaseManager {
         return []
     }
     
+    func deleteObject(object:NSManagedObject){
+        managedContext.delete(object)
+        
+        do {
+          try managedContext.save()
+        } catch let error as NSError {
+          print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    
 }
