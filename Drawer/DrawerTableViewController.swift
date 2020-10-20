@@ -19,6 +19,10 @@ class DrawerTableViewController: UITableViewController, UISearchControllerDelega
       return searchController.searchBar.text?.isEmpty ?? true
     }
     
+    var isFiltering: Bool {
+      return searchController.isActive && !isSearchBarEmpty
+    }
+    
     let dbManager = DatabaseManager.shareInstance
     
     override func viewDidLoad() {
@@ -49,7 +53,9 @@ class DrawerTableViewController: UITableViewController, UISearchControllerDelega
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+         if isFiltering {
+           return filteredDoodads.count
+         }
         return doodads.count
     }
 
@@ -57,7 +63,12 @@ class DrawerTableViewController: UITableViewController, UISearchControllerDelega
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "doodadCell", for: indexPath)
         
-        let doodad = doodads[indexPath.row]
+        let doodad: Doodad
+        if isFiltering {
+            doodad = filteredDoodads[indexPath.row]
+          } else {
+            doodad = doodads[indexPath.row]
+          }
         cell.textLabel!.text =
         doodad.value(forKeyPath: "name") as? String
 
@@ -71,6 +82,18 @@ class DrawerTableViewController: UITableViewController, UISearchControllerDelega
       }
       
       tableView.reloadData()
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "DoodadDetail") as! DoodadDetailViewController
+        let doodad: Doodad
+        if isFiltering {
+            doodad = filteredDoodads[indexPath.row]
+        }
+        else {
+            doodad = doodads[indexPath.row]
+        }
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 
