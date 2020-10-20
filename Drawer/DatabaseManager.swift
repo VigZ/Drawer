@@ -14,15 +14,17 @@ class DatabaseManager {
     
     let managedContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    func saveObject(data: Data, entityName: String) {
+    func saveObject(dataMap: [String:Any], entity: NSManagedObject) {
         let entity =
-          NSEntityDescription.entity(forEntityName: entityName,
+            NSEntityDescription.entity(forEntityName: entity.description,
                                      in: managedContext)!
         
         let newObject = NSManagedObject(entity: entity,
                                      insertInto: managedContext)
         
-        newObject.setValue(title, forKeyPath: "title")
+        for (key,value) in dataMap {
+            newObject.setValue(value, forKeyPath: key)
+        }
         
         do {
           try managedContext.save()
