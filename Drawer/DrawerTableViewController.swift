@@ -11,10 +11,22 @@ import CoreData
 class DrawerTableViewController: UITableViewController {
     
     var doodads = [NSManagedObject]()
+    let dbManager = DatabaseManager.shareInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        doodads = dbManager.fetchObjects(entityDescription: "Doodad")
+        
+        let dict = [
+            "name": "Test4",
+            "quantity": 32
+            
+            
+        ] as [String : Any]
+        dbManager.saveObject(dataMap:dict, entityDescription:"Doodad")
+        print("Object created")
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -35,9 +47,12 @@ class DrawerTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "doodadCell", for: indexPath)
+        
+        let doodad = doodads[indexPath.row]
+        cell.textLabel!.text =
+        doodad.value(forKeyPath: "name") as? String
 
-        // Configure the cell...
 
         return cell
     }
