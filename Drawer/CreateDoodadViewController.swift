@@ -8,7 +8,9 @@
 import UIKit
 
 class CreateDoodadViewController: UIViewController, UITextFieldDelegate {
-
+    
+    var loadedDoodad: Doodad?
+    
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var quantityField: UITextField!
     
@@ -16,7 +18,10 @@ class CreateDoodadViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        nameField.delegate = self
+        quantityField.delegate = self
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissEditor))
+        navigationController?.navigationItem.rightBarButtonItem = doneButton
     }
     
 
@@ -30,13 +35,13 @@ class CreateDoodadViewController: UIViewController, UITextFieldDelegate {
     }
     */
     
-    private func textFieldDidBeginEditing(_ textView: UITextView) {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissEditor))
-        navigationItem.rightBarButtonItem = doneButton
+        navigationController?.navigationItem.rightBarButtonItem = doneButton
         
     }
     
-    private func textFieldViewDidEndEditing(_ textView: UITextView) {
+    func textFieldDidEndEditing(_ textField: UITextField) {
         navigationItem.rightBarButtonItem = nil
     }
     
