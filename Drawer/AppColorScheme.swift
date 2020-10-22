@@ -20,11 +20,11 @@ extension AppColorScheme {
         get {
             switch self {
             case .primary:
-                return UIColor(red: 255.0, green: 213.0, blue: 126.0, alpha: 1.0)
+                return UIColor(red: 255/255, green: 244/255, blue: 126/255, alpha: 0.85) //Yellowish Cream
             case .secondary:
-                return UIColor(red: 255.0, green: 244.0, blue: 126.0, alpha: 1.0)
+                return UIColor(red: 94/255, green: 90/255, blue: 46/255, alpha: 1.0) // Greenish Brown
             case .tertiary:
-                return UIColor(red: 255.0, green: 180.0, blue: 126.0, alpha: 1.0)
+                return UIColor(red: 70/255, green: 70/255, blue: 70/255, alpha: 1.0) // Off Black
             }
         }
     }

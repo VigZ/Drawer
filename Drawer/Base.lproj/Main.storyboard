@@ -131,9 +131,11 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="H7s-EJ-MM5" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="Ier-Ix-t0n"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5x0-Zn-Se2">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="5x0-Zn-Se2">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="1" green="0.95686274509803915" blue="0.61568627450980395" alpha="0.84738869863013699" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -152,15 +154,14 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rYj-sW-8ez">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="tintColor" red="1" green="0.70588235294117641" blue="0.49411764705882355" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
-                        <color key="barTintColor" red="1" green="0.95686274509803915" blue="0.49411764705882355" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="1" green="0.95686274509803915" blue="0.49411764705882355" alpha="0.84738869863013699" colorSpace="custom" customColorSpace="sRGB"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                <color key="value" systemColor="systemYellowColor"/>
+                                <color key="value" red="0.36862745098039218" green="0.3529411764705882" blue="0.1803921568627451" alpha="0.8476027397260274" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
-                                <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="value" red="0.27450980392156865" green="0.27450980392156865" blue="0.27450980392156865" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </tabBar>
@@ -173,7 +174,7 @@
             <point key="canvasLocation" x="-146.37681159420291" y="-147.32142857142856"/>
         </scene>
     </scenes>
-    <color key="tintColor" red="1" green="0.70588235294117641" blue="0.49411764705882355" alpha="1" colorSpace="calibratedRGB"/>
+    <color key="tintColor" red="0.36862745098039218" green="0.3529411764705882" blue="0.1803921568627451" alpha="0.8476027397260274" colorSpace="calibratedRGB"/>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

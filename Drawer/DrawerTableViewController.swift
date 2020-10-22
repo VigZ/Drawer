@@ -28,13 +28,14 @@ class DrawerTableViewController: UITableViewController, UISearchControllerDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "My Drawer"
+        
         NotificationCenter.default.addObserver(self, selector: #selector(reloadList(notification:)), name: NSNotification.Name(rawValue: "load"), object: nil)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewDoodad))
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.backgroundColor = AppColorScheme.primary.value
-        print(AppColorScheme.primary.value)
-        navigationItem.title = "My Drawer"
+        
+        navigationItem.title = title
         
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
@@ -44,8 +45,8 @@ class DrawerTableViewController: UITableViewController, UISearchControllerDelega
         
         let tab_image = UIImage(systemName: "tray.full")
         
-        tabBarItem.title = title
-        tabBarItem.image = tab_image
+        navigationController?.tabBarItem.title = title
+        navigationController?.tabBarItem.image = tab_image
         
         
         
