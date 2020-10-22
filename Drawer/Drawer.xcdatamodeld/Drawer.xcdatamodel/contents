@@ -4,14 +4,14 @@
         <attribute name="img" optional="YES" attributeType="Binary"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="quantity" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="projects" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Doodad" inverseName="projects" inverseEntity="Doodad"/>
+        <relationship name="groups" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Doodad" inverseName="groups" inverseEntity="Doodad"/>
     </entity>
-    <entity name="Project" representedClassName="Project" syncable="YES" codeGenerationType="class">
+    <entity name="Groups" representedClassName="Groups" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="doodads" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Project" inverseName="doodads" inverseEntity="Project"/>
+        <relationship name="doodads" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Groups" inverseName="doodads" inverseEntity="Groups"/>
     </entity>
     <elements>
         <element name="Doodad" positionX="-63" positionY="-18" width="128" height="103"/>
-        <element name="Project" positionX="-45" positionY="36" width="128" height="73"/>
+        <element name="Groups" positionX="-45" positionY="36" width="128" height="73"/>
     </elements>
 </model>

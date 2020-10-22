@@ -115,6 +115,11 @@ class DrawerTableViewController: UITableViewController, UISearchControllerDelega
         tableView.reloadData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        doodads = dbManager.fetchObjects(entityDescription: "Doodad").compactMap { $0 as? Doodad }
+        tableView.reloadData() 
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.
