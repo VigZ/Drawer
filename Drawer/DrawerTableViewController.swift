@@ -86,6 +86,8 @@ class DrawerTableViewController: UITableViewController, UISearchControllerDelega
         cell.nameLabel!.text = doodad.value(forKeyPath: "name") as? String
         
         cell.quantityLabel!.text = doodad.value(forKeyPath: "quantity") as? String
+        
+        cell.descriptionLabel!.text = doodad.value(forKeyPath: "doodadDescription") as? String
 
 
         return cell

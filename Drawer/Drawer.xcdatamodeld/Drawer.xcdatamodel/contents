@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19F101" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19H2" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Doodad" representedClassName="Doodad" syncable="YES" codeGenerationType="class">
+        <attribute name="doodadDescription" optional="YES" attributeType="String"/>
         <attribute name="img" optional="YES" attributeType="Binary"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="quantity" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="groups" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Doodad" inverseName="groups" inverseEntity="Doodad"/>
+        <relationship name="projects" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Doodad" inverseName="projects" inverseEntity="Doodad"/>
     </entity>
-    <entity name="Groups" representedClassName="Groups" syncable="YES" codeGenerationType="class">
+    <entity name="Projects" representedClassName="Projects" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="doodads" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Groups" inverseName="doodads" inverseEntity="Groups"/>
+        <relationship name="doodads" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Projects" inverseName="doodads" inverseEntity="Projects"/>
     </entity>
     <elements>
-        <element name="Doodad" positionX="-63" positionY="-18" width="128" height="103"/>
-        <element name="Groups" positionX="-45" positionY="36" width="128" height="73"/>
+        <element name="Doodad" positionX="-63" positionY="-18" width="128" height="118"/>
+        <element name="Projects" positionX="-45" positionY="36" width="128" height="73"/>
     </elements>
 </model>

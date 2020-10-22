@@ -7,12 +7,13 @@
 
 import UIKit
 
-class CreateDoodadViewController: UIViewController, UITextFieldDelegate {
+class CreateDoodadViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     
     var loadedDoodad: Doodad?
     
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var quantityField: UITextField!
+    @IBOutlet weak var descriptionField: UITextView!
     
     @IBOutlet weak var submitButton: UIButton!
     
@@ -20,6 +21,7 @@ class CreateDoodadViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         nameField.delegate = self
         quantityField.delegate = self
+        descriptionField.delegate = self
 
     }
     
@@ -44,10 +46,26 @@ class CreateDoodadViewController: UIViewController, UITextFieldDelegate {
         navigationItem.rightBarButtonItem = nil
     }
     
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissEditor))
+        navigationItem.rightBarButtonItem = doneButton
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        navigationItem.rightBarButtonItem = nil
+    }
+    
+    func textViewShouldReturn(_ textView: UITextView) -> Bool {
+        textView.resignFirstResponder()
+        return true
+    }
+
     
     @objc func dismissEditor(){
         self.view.endEditing(true)
@@ -63,7 +81,8 @@ class CreateDoodadViewController: UIViewController, UITextFieldDelegate {
         
         let dataDict = [
             "name": name,
-            "quantity": quantInt
+            "quantity": quantInt,
+            "doodadDescription": descriptionField.text
         ] as [String : Any]
         
 
