@@ -51,6 +51,12 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="descriptionLabel" destination="MPT-nq-aD7" id="35s-nr-QMG"/>
+                                    <outlet property="doodadImage" destination="7jz-QH-xGf" id="HdC-Fw-l2B"/>
+                                    <outlet property="nameLabel" destination="OCe-rW-f87" id="3aL-uc-8Ew"/>
+                                    <outlet property="quantityLabel" destination="Vza-gd-KWe" id="QYf-gc-dDT"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
