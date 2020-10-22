@@ -75,7 +75,7 @@ class DrawerTableViewController: UITableViewController, UISearchControllerDelega
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "doodadCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "doodadCell", for: indexPath) as! DoodadCell
         
         let doodad: Doodad
         if isFiltering {
@@ -83,8 +83,9 @@ class DrawerTableViewController: UITableViewController, UISearchControllerDelega
           } else {
             doodad = doodads[indexPath.row]
           }
-        cell.textLabel!.text =
-        doodad.value(forKeyPath: "name") as? String
+        cell.nameLabel!.text = doodad.value(forKeyPath: "name") as? String
+        
+        cell.quantityLabel!.text = doodad.value(forKeyPath: "quantity") as? String
 
 
         return cell
