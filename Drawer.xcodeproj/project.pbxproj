@@ -107,14 +107,15 @@
 		80461615253B8916006B9164 /* Drawer */ = {
 			isa = PBXGroup;
 			children = (
+				80982639254117F40012FEF3 /* Protocols */,
 				8046165C253E54E5006B9164 /* Controllers */,
 				8046165B253E54DB006B9164 /* Views */,
 				8046165A253E54CC006B9164 /* Models */,
 				80461616253B8916006B9164 /* AppDelegate.swift */,
 				80461618253B8916006B9164 /* SceneDelegate.swift */,
+				8098262C253F780B0012FEF3 /* DoodadDetailViewController.swift */,
 				8046164D253E4534006B9164 /* DrawerTableViewController.swift */,
 				80982633253F8BF00012FEF3 /* CreateDoodadViewController.swift */,
-				8098262C253F780B0012FEF3 /* DoodadDetailViewController.swift */,
 				8046161C253B8916006B9164 /* Main.storyboard */,
 				80461622253B8917006B9164 /* Assets.xcassets */,
 				80461624253B8917006B9164 /* LaunchScreen.storyboard */,
@@ -160,8 +161,23 @@
 		8046165C253E54E5006B9164 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				809EB322254124FF003F2786 /* Doodad */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		80982639254117F40012FEF3 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		809EB322254124FF003F2786 /* Doodad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Doodad;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

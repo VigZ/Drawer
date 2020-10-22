@@ -20,8 +20,7 @@ class CreateDoodadViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         nameField.delegate = self
         quantityField.delegate = self
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissEditor))
-        navigationController?.navigationItem.rightBarButtonItem = doneButton
+
     }
     
 
@@ -37,7 +36,7 @@ class CreateDoodadViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissEditor))
-        navigationController?.navigationItem.rightBarButtonItem = doneButton
+        navigationItem.rightBarButtonItem = doneButton
         
     }
     
@@ -51,8 +50,32 @@ class CreateDoodadViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func dismissEditor(){
+        self.view.endEditing(true)
+    }
+    
+    @IBAction func createDoodad(_ sender: Any) {
+        guard let name = nameField.text, let quantity = quantityField.text  else {
+            //could show error flash message here to make sure fields are filled.
+            return
+        }
+        // I don't like this at all. I would like to use extensions and use the Mirror API for object introspection and create the NSobjects from there.
+        let quantInt = Int(quantity)
+        
+        let dataDict = [
+            "name": name,
+            "quantity": quantInt
+        ] as [String : Any]
+        
+
+        DatabaseManager.shareInstance.saveObject(dataMap:dataDict,entityDescription:"Doodad")
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+        
+        navigationController?.popViewController(animated: true)
+        
         
     }
+    
 
 }
 

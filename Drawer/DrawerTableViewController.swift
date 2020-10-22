@@ -28,6 +28,8 @@ class DrawerTableViewController: UITableViewController, UISearchControllerDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadList(notification:)), name: NSNotification.Name(rawValue: "load"), object: nil)
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewDoodad))
         
         searchController.searchResultsUpdater = self
@@ -106,6 +108,11 @@ class DrawerTableViewController: UITableViewController, UISearchControllerDelega
         
         navigationController?.pushViewController(vc, animated: true)
         
+    }
+    
+    @objc func reloadList(notification: NSNotification){
+        
+        tableView.reloadData()
     }
     
 
