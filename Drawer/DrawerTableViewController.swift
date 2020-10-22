@@ -31,12 +31,21 @@ class DrawerTableViewController: UITableViewController, UISearchControllerDelega
         NotificationCenter.default.addObserver(self, selector: #selector(reloadList(notification:)), name: NSNotification.Name(rawValue: "load"), object: nil)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewDoodad))
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.backgroundColor = AppColorScheme.primary.value
+        print(AppColorScheme.primary.value)
+        navigationItem.title = "My Drawer"
         
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search Doodads"
         navigationItem.searchController = searchController
         definesPresentationContext = true
+        
+        let tab_image = UIImage(systemName: "tray.full")
+        
+        tabBarItem.title = title
+        tabBarItem.image = tab_image
         
         
         
