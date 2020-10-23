@@ -42,10 +42,7 @@ class ProjectTableViewController: UITableViewController, UISearchControllerDeleg
         navigationItem.searchController = searchController
         definesPresentationContext = true
         
-//        let tab_image = UIImage(systemName: "hammer.fill")
-        
         navigationController?.tabBarItem.title = title
-//        navigationController?.tabBarItem.image = tab_image
         
         
         

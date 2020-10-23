@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CreateDoodadViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
+class CreateDoodadViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var loadedDoodad: Doodad?
     
@@ -15,7 +15,10 @@ class CreateDoodadViewController: UIViewController, UITextFieldDelegate, UITextV
     @IBOutlet weak var quantityField: UITextField!
     @IBOutlet weak var descriptionField: UITextView!
     
+    @IBOutlet weak var choosePhotoButton: UIButton!
     @IBOutlet weak var submitButton: UIButton!
+    
+    @IBOutlet weak var doodadImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +28,10 @@ class CreateDoodadViewController: UIViewController, UITextFieldDelegate, UITextV
 
     }
     
-
+    @IBAction func choosePhoto(_ sender: Any) {
+        addNewImage()
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -93,6 +99,13 @@ class CreateDoodadViewController: UIViewController, UITextFieldDelegate, UITextV
         navigationController?.popViewController(animated: true)
         
         
+    }
+    
+    func addNewImage() {
+        let picker = UIImagePickerController()
+        picker.allowsEditing = true
+        picker.delegate = self
+        present(picker, animated: true)
     }
     
 
