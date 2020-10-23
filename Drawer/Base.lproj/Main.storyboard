@@ -208,11 +208,11 @@
             </objects>
             <point key="canvasLocation" x="3286" y="-137"/>
         </scene>
-        <!--Item-->
+        <!--My Drawer-->
         <scene sceneID="Jgw-Gb-N8G">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="H7s-EJ-MM5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Ier-Ix-t0n"/>
+                    <tabBarItem key="tabBarItem" title="My Drawer" image="tray.full" catalog="system" selectedImage="tray.full.fill" id="Ier-Ix-t0n"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="5x0-Zn-Se2">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -257,11 +257,11 @@
             </objects>
             <point key="canvasLocation" x="-146.37681159420291" y="-147.32142857142856"/>
         </scene>
-        <!--Item-->
+        <!--Projects-->
         <scene sceneID="ppU-a2-pbJ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Quy-2s-9Go" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="5mf-rp-54Z"/>
+                    <tabBarItem key="tabBarItem" title="Projects" image="hammer" catalog="system" selectedImage="hammer.fill" id="5mf-rp-54Z"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YSU-jF-0jf">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -279,6 +279,10 @@
     </scenes>
     <color key="tintColor" red="0.36862745098039218" green="0.3529411764705882" blue="0.1803921568627451" alpha="0.8476027397260274" colorSpace="calibratedRGB"/>
     <resources>
+        <image name="hammer" catalog="system" width="128" height="117"/>
+        <image name="hammer.fill" catalog="system" width="128" height="117"/>
+        <image name="tray.full" catalog="system" width="128" height="88"/>
+        <image name="tray.full.fill" catalog="system" width="128" height="88"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

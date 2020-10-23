@@ -43,10 +43,10 @@ class DrawerTableViewController: UITableViewController, UISearchControllerDelega
         navigationItem.searchController = searchController
         definesPresentationContext = true
         
-        let tab_image = UIImage(systemName: "tray.full")
+//        let tab_image = UIImage(systemName: "tray.full")
         
         navigationController?.tabBarItem.title = title
-        navigationController?.tabBarItem.image = tab_image
+//        navigationController?.tabBarItem.image = tab_image
         
         
         
