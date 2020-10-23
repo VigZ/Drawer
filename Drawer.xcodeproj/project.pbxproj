@@ -21,6 +21,7 @@
 		80982634253F8BF00012FEF3 /* CreateDoodadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80982633253F8BF00012FEF3 /* CreateDoodadViewController.swift */; };
 		809EB3272541EBF7003F2786 /* AppColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809EB3262541EBF7003F2786 /* AppColorScheme.swift */; };
 		809EB3372542259C003F2786 /* DoodadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809EB3362542259C003F2786 /* DoodadCell.swift */; };
+		80AA466A2542727900826D04 /* ProjectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AA46692542727800826D04 /* ProjectTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		80982633253F8BF00012FEF3 /* CreateDoodadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDoodadViewController.swift; sourceTree = "<group>"; };
 		809EB3262541EBF7003F2786 /* AppColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColorScheme.swift; sourceTree = "<group>"; };
 		809EB3362542259C003F2786 /* DoodadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DoodadCell.swift; path = Drawer/DoodadCell.swift; sourceTree = SOURCE_ROOT; };
+		80AA46692542727800826D04 /* ProjectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				80461618253B8916006B9164 /* SceneDelegate.swift */,
 				8098262C253F780B0012FEF3 /* DoodadDetailViewController.swift */,
 				809EB3362542259C003F2786 /* DoodadCell.swift */,
+				80AA46692542727800826D04 /* ProjectTableViewController.swift */,
 				8046164D253E4534006B9164 /* DrawerTableViewController.swift */,
 				809EB3262541EBF7003F2786 /* AppColorScheme.swift */,
 				80982633253F8BF00012FEF3 /* CreateDoodadViewController.swift */,
@@ -322,6 +325,7 @@
 				80461621253B8916006B9164 /* Drawer.xcdatamodeld in Sources */,
 				8046164E253E4534006B9164 /* DrawerTableViewController.swift in Sources */,
 				809EB3272541EBF7003F2786 /* AppColorScheme.swift in Sources */,
+				80AA466A2542727900826D04 /* ProjectTableViewController.swift in Sources */,
 				80461656253E485E006B9164 /* DatabaseManager.swift in Sources */,
 				80461617253B8916006B9164 /* AppDelegate.swift in Sources */,
 				80461619253B8916006B9164 /* SceneDelegate.swift in Sources */,
