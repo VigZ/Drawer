@@ -49,7 +49,7 @@ class ProjectTableViewController: UITableViewController, UISearchControllerDeleg
         
         
         
-        doodads = dbManager.fetchObjects(entityDescription: "Project").compactMap { $0 as? Project }
+        projects = dbManager.fetchObjects(entityDescription: "Project").compactMap { $0 as? Project }
         
         
         // Uncomment the following line to preserve selection between presentations

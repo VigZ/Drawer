@@ -22,6 +22,7 @@
 		809EB3272541EBF7003F2786 /* AppColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809EB3262541EBF7003F2786 /* AppColorScheme.swift */; };
 		809EB3372542259C003F2786 /* DoodadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809EB3362542259C003F2786 /* DoodadCell.swift */; };
 		80AA466A2542727900826D04 /* ProjectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AA46692542727800826D04 /* ProjectTableViewController.swift */; };
+		80AA467F25427DFB00826D04 /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AA467E25427DFB00826D04 /* ProjectCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		809EB3262541EBF7003F2786 /* AppColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColorScheme.swift; sourceTree = "<group>"; };
 		809EB3362542259C003F2786 /* DoodadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DoodadCell.swift; path = Drawer/DoodadCell.swift; sourceTree = SOURCE_ROOT; };
 		80AA46692542727800826D04 /* ProjectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTableViewController.swift; sourceTree = "<group>"; };
+		80AA467E25427DFB00826D04 /* ProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				80461618253B8916006B9164 /* SceneDelegate.swift */,
 				8098262C253F780B0012FEF3 /* DoodadDetailViewController.swift */,
 				809EB3362542259C003F2786 /* DoodadCell.swift */,
+				80AA467E25427DFB00826D04 /* ProjectCell.swift */,
 				80AA46692542727800826D04 /* ProjectTableViewController.swift */,
 				8046164D253E4534006B9164 /* DrawerTableViewController.swift */,
 				809EB3262541EBF7003F2786 /* AppColorScheme.swift */,
@@ -320,6 +323,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				809EB3372542259C003F2786 /* DoodadCell.swift in Sources */,
+				80AA467F25427DFB00826D04 /* ProjectCell.swift in Sources */,
 				80982634253F8BF00012FEF3 /* CreateDoodadViewController.swift in Sources */,
 				8098262D253F780B0012FEF3 /* DoodadDetailViewController.swift in Sources */,
 				80461621253B8916006B9164 /* Drawer.xcdatamodeld in Sources */,
