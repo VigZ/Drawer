@@ -105,6 +105,35 @@
             </objects>
             <point key="canvasLocation" x="2534.7826086956525" y="-136.60714285714286"/>
         </scene>
+        <!--Project Table View Controller-->
+        <scene sceneID="UhQ-AG-3ms">
+            <objects>
+                <tableViewController id="K5l-g2-re1" customClass="ProjectTableViewController" customModule="Drawer" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="awn-5l-sQZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="projectCell" id="rXC-uj-x4z" customClass="ProjectCell" customModule="Drawer" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rXC-uj-x4z" id="0rg-64-TBz">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="K5l-g2-re1" id="vlq-E5-Gub"/>
+                            <outlet property="delegate" destination="K5l-g2-re1" id="crr-tU-fCJ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="w3f-l9-7PI"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CQn-kp-jId" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1674" y="516"/>
+        </scene>
         <!--Create Doodad View Controller-->
         <scene sceneID="iLF-SL-QdB">
             <objects>
@@ -177,7 +206,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n3p-oa-3Kh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2535" y="516"/>
+            <point key="canvasLocation" x="3286" y="-137"/>
         </scene>
         <!--Item-->
         <scene sceneID="Jgw-Gb-N8G">
@@ -189,7 +218,7 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" red="1" green="0.95686274510000002" blue="0.4941176471" alpha="0.85437178940000003" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="1" green="0.95686274510000002" blue="0.4941176471" alpha="0.45000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -221,11 +250,31 @@
                     </tabBar>
                     <connections>
                         <segue destination="H7s-EJ-MM5" kind="relationship" relationship="viewControllers" id="Am9-Wk-0fg"/>
+                        <segue destination="Quy-2s-9Go" kind="relationship" relationship="viewControllers" id="ak7-Jj-yh9"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wvy-Kt-1S7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-146.37681159420291" y="-147.32142857142856"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="ppU-a2-pbJ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Quy-2s-9Go" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="5mf-rp-54Z"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YSU-jF-0jf">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="K5l-g2-re1" kind="relationship" relationship="rootViewController" id="N7j-6g-KWx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ul4-vG-5q0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="764" y="516"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.36862745098039218" green="0.3529411764705882" blue="0.1803921568627451" alpha="0.8476027397260274" colorSpace="calibratedRGB"/>

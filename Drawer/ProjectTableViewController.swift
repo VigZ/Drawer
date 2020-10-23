@@ -74,7 +74,7 @@ class ProjectTableViewController: UITableViewController, UISearchControllerDeleg
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectCell", for: indexPath) as! ProjectCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "projectCell", for: indexPath) as! ProjectCell
         
         let project: Project
         if isFiltering {
@@ -99,24 +99,24 @@ class ProjectTableViewController: UITableViewController, UISearchControllerDeleg
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "ProjectDetail") as! ProjectDetailViewController
-        let project: Project
-        if isFiltering {
-            project = filteredProjects[indexPath.row]
-        }
-        else {
-            project = projects[indexPath.row]
-        }
-        
-        vc.project = project
-        
-        navigationController?.pushViewController(vc, animated: true)
+//        let vc = storyboard?.instantiateViewController(withIdentifier: "ProjectDetail") as! ProjectDetailViewController
+//        let project: Project
+//        if isFiltering {
+//            project = filteredProjects[indexPath.row]
+//        }
+//        else {
+//            project = projects[indexPath.row]
+//        }
+//        
+//        vc.project = project
+//        
+//        navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func addNewProject(){
-        let vc = storyboard?.instantiateViewController(withIdentifier: "CreateProject") as! CreateProjectViewController
-        
-        navigationController?.pushViewController(vc, animated: true)
+//        let vc = storyboard?.instantiateViewController(withIdentifier: "CreateProject") as! CreateProjectViewController
+//
+//        navigationController?.pushViewController(vc, animated: true)
         
     }
     
