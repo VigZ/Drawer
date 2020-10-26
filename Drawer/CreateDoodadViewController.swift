@@ -30,7 +30,7 @@ class CreateDoodadViewController: UIViewController, UITextFieldDelegate, UITextV
         
         if loadedDoodad != nil {
             editMode = true
-            nameField.isHidden = true
+            nameField.isUserInteractionEnabled = false
             presetFields()
         }
 
@@ -100,14 +100,16 @@ class CreateDoodadViewController: UIViewController, UITextFieldDelegate, UITextV
             "img": doodadImage.image?.toData
         ] as [String : Any]
         
-
-        DatabaseManager.shareInstance.saveObject(dataMap:dataDict,entityDescription:"Doodad")
-        
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
-        
-        navigationController?.popViewController(animated: true)
-        
-        
+        if editMode {
+            DatabaseManager.shareInstance.updateObject(identifier: name, dataMap: dataDict, entityDescription: "Doodad")
+            navigationController?.popToRootViewController(animated: true)
+        }
+        else {
+            DatabaseManager.shareInstance.saveObject(dataMap:dataDict,entityDescription:"Doodad")
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+            
+            navigationController?.popViewController(animated: true)
+        }
     }
     
     func addNewImage() {

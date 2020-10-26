@@ -28,7 +28,7 @@ class CreateProjectViewController: UIViewController, UITextFieldDelegate, UIText
         
         if loadedProject != nil {
             editMode = true
-            nameField.isHidden = true
+            nameField.isUserInteractionEnabled = false
             presetFields()
         }
 
@@ -97,14 +97,16 @@ class CreateProjectViewController: UIViewController, UITextFieldDelegate, UIText
         
         if editMode {
             DatabaseManager.shareInstance.updateObject(identifier: name, dataMap: dataDict, entityDescription: "Project")
+            navigationController?.popToRootViewController(animated: true)
         }
         else {
             DatabaseManager.shareInstance.saveObject(dataMap:dataDict,entityDescription:"Project")
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+            
+            navigationController?.popViewController(animated: true)
         }
         
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
-        
-        navigationController?.popViewController(animated: true)
+
     }
     func addNewImage() {
         let picker = UIImagePickerController()
