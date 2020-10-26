@@ -18,6 +18,11 @@ class DoodadDetailViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     
     @IBOutlet weak var imageView: UIImageView!
+    
+    @IBOutlet weak var editButton: UIButton!
+    
+    @IBOutlet weak var deleteButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -43,5 +48,16 @@ class DoodadDetailViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    @IBAction func editDoodad(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "CreateDoodad") as! CreateDoodadViewController
+        
+        vc.loadedDoodad = doodad
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @IBAction func deleteDoodad(_ sender: Any) {
+        DatabaseManager.shareInstance.deleteObject(object: doodad)
+       navigationController?.popToRootViewController(animated: true)
+    }
+    
 }

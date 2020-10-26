@@ -11,6 +11,8 @@ class CreateDoodadViewController: UIViewController, UITextFieldDelegate, UITextV
     
     var loadedDoodad: Doodad?
     
+    var editMode: Bool = false
+    
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var quantityField: UITextField!
     @IBOutlet weak var descriptionField: UITextView!
@@ -25,6 +27,12 @@ class CreateDoodadViewController: UIViewController, UITextFieldDelegate, UITextV
         nameField.delegate = self
         quantityField.delegate = self
         descriptionField.delegate = self
+        
+        if loadedDoodad != nil {
+            editMode = true
+            nameField.isHidden = true
+            presetFields()
+        }
 
     }
     
@@ -115,6 +123,17 @@ class CreateDoodadViewController: UIViewController, UITextFieldDelegate, UITextV
         dismiss(animated: true)
         
         
+    }
+    
+    func presetFields(){
+        nameField.text = loadedDoodad?.name
+        descriptionField.text = loadedDoodad?.doodadDescription
+        if let newQuantity = loadedDoodad?.quantity {
+            quantityField.text = String(newQuantity)
+        }
+        if let imageData = loadedDoodad?.img {
+            doodadImage.image = UIImage(data: imageData)
+        }
     }
     
 
