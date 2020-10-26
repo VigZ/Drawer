@@ -23,6 +23,10 @@ class CreateProjectViewController: UIViewController, UITextFieldDelegate, UIText
         super.viewDidLoad()
         nameField.delegate = self
         descriptionField.delegate = self
+        
+        if loadedProject != nil {
+            presetFields()
+        }
 
     }
     
@@ -109,5 +113,12 @@ class CreateProjectViewController: UIViewController, UITextFieldDelegate, UIText
         
     }
     
+    func presetFields(){
+        nameField.text = loadedProject?.name
+        descriptionField.text = loadedProject?.projectDescription
+        if let imageData = loadedProject?.img {
+            projectImage.image = UIImage(data: imageData)
+        }
+    }
 
 }

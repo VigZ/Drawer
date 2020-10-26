@@ -31,7 +31,13 @@ class ProjectDetailViewController: UIViewController {
 
     }
     
-
+    @IBAction func editProject(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "CreateProject") as! CreateProjectViewController
+        
+        vc.loadedProject = project
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 
