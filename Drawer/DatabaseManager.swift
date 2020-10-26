@@ -57,4 +57,35 @@ class DatabaseManager {
         }
     }
     
+    func updateObject(identifier: String, dataMap: [String:Any], entityDescription: String) {
+
+        let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: entityDescription)
+        
+        let predicate = NSPredicate(format: "name = '\(identifier)'")
+        fetchRequest.predicate = predicate
+        do
+        {
+            let object = try managedContext.fetch(fetchRequest)
+            if object.count == 1
+            {
+                let objectUpdate = object.first as! NSManagedObject
+                
+                for (key,value) in dataMap {
+                    // Should add saftey check to see if object has the property i am trying to set.
+                    objectUpdate.setValue(value, forKeyPath: key)
+                }
+                do{
+                    try managedContext.save()
+                }
+                catch let error as NSError {
+              print("Could not save. \(error), \(error.userInfo)")
+                }
+            }
+        }
+        catch
+        {
+            print(error)
+        }
+    }
+    
 }
