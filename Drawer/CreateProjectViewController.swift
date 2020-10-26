@@ -11,6 +11,8 @@ class CreateProjectViewController: UIViewController, UITextFieldDelegate, UIText
     
     var loadedProject: Project?
     
+    var editMode: Bool = false
+    
     @IBOutlet weak var nameField: UITextField!
     
     @IBOutlet weak var descriptionField: UITextView!
@@ -25,6 +27,8 @@ class CreateProjectViewController: UIViewController, UITextFieldDelegate, UIText
         descriptionField.delegate = self
         
         if loadedProject != nil {
+            editMode = true
+            nameField.isHidden = true
             presetFields()
         }
 
@@ -91,8 +95,12 @@ class CreateProjectViewController: UIViewController, UITextFieldDelegate, UIText
             "img": projectImage.image?.toData
         ] as [String : Any]
         
-
-        DatabaseManager.shareInstance.saveObject(dataMap:dataDict,entityDescription:"Project")
+        if editMode {
+            DatabaseManager.shareInstance.updateObject(identifier: name, dataMap: dataDict, entityDescription: "Project")
+        }
+        else {
+            DatabaseManager.shareInstance.saveObject(dataMap:dataDict,entityDescription:"Project")
+        }
         
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
         
