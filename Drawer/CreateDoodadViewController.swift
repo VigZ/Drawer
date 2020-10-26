@@ -88,7 +88,8 @@ class CreateDoodadViewController: UIViewController, UITextFieldDelegate, UITextV
         let dataDict = [
             "name": name,
             "quantity": quantInt,
-            "doodadDescription": descriptionField.text
+            "doodadDescription": descriptionField.text,
+            "img": doodadImage.image?.toData
         ] as [String : Any]
         
 
@@ -106,6 +107,14 @@ class CreateDoodadViewController: UIViewController, UITextFieldDelegate, UITextV
         picker.allowsEditing = true
         picker.delegate = self
         present(picker, animated: true)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[.originalImage] as? UIImage else { return }
+        doodadImage.image = image
+        dismiss(animated: true)
+        
+        
     }
     
 

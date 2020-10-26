@@ -23,6 +23,7 @@
 		809EB3372542259C003F2786 /* DoodadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809EB3362542259C003F2786 /* DoodadCell.swift */; };
 		80AA466A2542727900826D04 /* ProjectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AA46692542727800826D04 /* ProjectTableViewController.swift */; };
 		80AA467F25427DFB00826D04 /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AA467E25427DFB00826D04 /* ProjectCell.swift */; };
+		80AA468C25475B0B00826D04 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AA468B25475B0B00826D04 /* UIImage+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		809EB3362542259C003F2786 /* DoodadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DoodadCell.swift; path = Drawer/DoodadCell.swift; sourceTree = SOURCE_ROOT; };
 		80AA46692542727800826D04 /* ProjectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTableViewController.swift; sourceTree = "<group>"; };
 		80AA467E25427DFB00826D04 /* ProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCell.swift; sourceTree = "<group>"; };
+		80AA468B25475B0B00826D04 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 				8046164D253E4534006B9164 /* DrawerTableViewController.swift */,
 				809EB3262541EBF7003F2786 /* AppColorScheme.swift */,
 				80982633253F8BF00012FEF3 /* CreateDoodadViewController.swift */,
+				80AA468B25475B0B00826D04 /* UIImage+.swift */,
 				8046161C253B8916006B9164 /* Main.storyboard */,
 				80461622253B8917006B9164 /* Assets.xcassets */,
 				80461624253B8917006B9164 /* LaunchScreen.storyboard */,
@@ -331,6 +334,7 @@
 				809EB3272541EBF7003F2786 /* AppColorScheme.swift in Sources */,
 				80AA466A2542727900826D04 /* ProjectTableViewController.swift in Sources */,
 				80461656253E485E006B9164 /* DatabaseManager.swift in Sources */,
+				80AA468C25475B0B00826D04 /* UIImage+.swift in Sources */,
 				80461617253B8916006B9164 /* AppDelegate.swift in Sources */,
 				80461619253B8916006B9164 /* SceneDelegate.swift in Sources */,
 			);

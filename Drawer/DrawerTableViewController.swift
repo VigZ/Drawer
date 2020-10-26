@@ -88,6 +88,10 @@ class DrawerTableViewController: UITableViewController, UISearchControllerDelega
         cell.quantityLabel!.text = doodad.value(forKeyPath: "quantity") as? String
         
         cell.descriptionLabel!.text = doodad.value(forKeyPath: "doodadDescription") as? String
+        
+        if let imageData = doodad.img {
+            cell.doodadImage.image = UIImage(data: imageData)
+        }
 
 
         return cell
