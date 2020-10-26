@@ -16,6 +16,8 @@ class ProjectDetailViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     
     @IBOutlet weak var projectImageView: UIImageView!
+    
+    @IBOutlet weak var deleteButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,4 +50,9 @@ class ProjectDetailViewController: UIViewController {
     }
     */
 
+    @IBAction func deleteObject(_ sender: Any) {
+        
+     DatabaseManager.shareInstance.deleteObject(object: project)
+    navigationController?.popToRootViewController(animated: true)
+    }
 }

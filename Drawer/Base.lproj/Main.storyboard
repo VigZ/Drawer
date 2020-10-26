@@ -299,11 +299,23 @@
                                     <action selector="editProject:" destination="NFi-WW-pAt" eventType="touchUpInside" id="Xxb-tr-znr"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iet-X7-dOd">
+                                <rect key="frame" x="182" y="762" width="52" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Delete">
+                                    <color key="titleColor" systemColor="systemRedColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteObject:" destination="NFi-WW-pAt" eventType="touchUpInside" id="sOs-N4-QKY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="y74-UW-bNR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="deleteButton" destination="iet-X7-dOd" id="4cB-4J-cq3"/>
                         <outlet property="descriptionLabel" destination="QIT-o4-HCu" id="cUS-jx-pqn"/>
                         <outlet property="projectImageView" destination="mbt-ln-Xha" id="OVo-pV-DWb"/>
                         <outlet property="projectLabel" destination="idC-Ld-N1v" id="8lx-8e-ylL"/>
@@ -474,6 +486,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
