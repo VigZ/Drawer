@@ -15,11 +15,22 @@ class DoodadDetailViewController: UIViewController {
     
     @IBOutlet weak var quantityLabel: UILabel!
     
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
+    @IBOutlet weak var imageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         doodadLabel.text = doodad.name
         quantityLabel.text = String(doodad.quantity)
+        descriptionLabel.text = doodad.doodadDescription
+        if let image = doodad.img {
+            imageView.image = UIImage(data: image)
+        }
+        else {
+            imageView.image = UIImage(named: "product-placeholder")
+        }
+        
     }
     
 
