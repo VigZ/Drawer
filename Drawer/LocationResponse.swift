@@ -1,35 +1,32 @@
 //
-//  LocationResult.swift
+//  LocationResponse.swift
 //  Drawer
 //
 //  Created by Kyle on 10/27/20.
 //
 
-import Foundation
-import UIKit
-
 // MARK: - LocationResponse
-
-struct LocationReponse: Codable {
-    let htmlAttributions: [JSONAny]
-    let results: [LocationResult]
-    let status: String
+struct LocationResponse: Codable {
+    let htmlAttributions: [JSONAny]?
+    let results: [LocationResult]?
+    let status: String?
 
     enum CodingKeys: String, CodingKey {
         case htmlAttributions = "html_attributions"
         case results, status
     }
 }
+
 // MARK: - LocationResult
 struct LocationResult: Codable {
-    let geometry: Geometry
-    let icon: String
-    let id, name: String
+    let geometry: Geometry?
+    let icon: String?
+    let id, name: String?
     let openingHours: OpeningHours?
-    let photos: [Photo]
-    let placeID, reference: String
-    let types: [String]
-    let vicinity: String
+    let photos: [Photo]?
+    let placeID, reference: String?
+    let types: [String]?
+    let vicinity: String?
 
     enum CodingKeys: String, CodingKey {
         case geometry, icon, id, name
@@ -42,17 +39,17 @@ struct LocationResult: Codable {
 
 // MARK: - Geometry
 struct Geometry: Codable {
-    let location: Location
+    let location: Location?
 }
 
 // MARK: - Location
 struct Location: Codable {
-    let lat, lng: Double
+    let lat, lng: Double?
 }
 
 // MARK: - OpeningHours
 struct OpeningHours: Codable {
-    let openNow: Bool
+    let openNow: Bool?
 
     enum CodingKeys: String, CodingKey {
         case openNow = "open_now"
@@ -61,10 +58,10 @@ struct OpeningHours: Codable {
 
 // MARK: - Photo
 struct Photo: Codable {
-    let height: Int
-    let htmlAttributions: [JSONAny]
-    let photoReference: String
-    let width: Int
+    let height: Int?
+    let htmlAttributions: [JSONAny]?
+    let photoReference: String?
+    let width: Int?
 
     enum CodingKeys: String, CodingKey {
         case height

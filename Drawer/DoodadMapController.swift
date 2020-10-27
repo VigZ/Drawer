@@ -10,7 +10,10 @@ import GoogleMaps
 
 class DoodadMapController: UIViewController {
     
+    var locations = [LocationResult]()
+    
     let apiUrl = URL(string:"https://maps.googleapis.com/maps/api/place/textsearch/json?query=pipe+cleaners&key=AIzaSyBe9D5zAvMOxnqYwZygvLZ1USCG--IDjvU")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -27,28 +30,31 @@ class DoodadMapController: UIViewController {
         marker.snippet = "Australia"
         marker.map = mapView
         
-        fetchWithSearchTerm(apiUrl!)
+        fetchLocations(apiUrl!)
 
     }
     
-    func fetchWithSearchTerm(_ url: URL){
-        URLSession.shared.dataTask(with: url){ data, response, error in
+    func fetchLocations(_ url: URL){
+        URLSession.shared.dataTask(with: url){ [weak self] data, response, error in
             
             if let error = error {
                 
             }
             else if let data = data {
-                if let json = try? JSONSerialization.jsonObject(with: data, options: []) {
-                    print(json)
+//                if let json = try? JSONSerialization.jsonObject(with: data, options: []) {
+//                    print(json)
+//                }
+                let decoder = JSONDecoder()
+                let response = try? decoder.decode(LocationResponse.self, from: data)
+                guard let results = response?.results else {
+                    return
                 }
-//                let decoder = JSONDecoder()
+                if let self = self {
+                    self.locations = results
+
+                }
                 
-                do {
-//                    let location = try decoder.decode(Location.self, from: data)
-                }
-                catch {
-                    
-                }
+                
             }
             
         }.resume()
