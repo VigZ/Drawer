@@ -17,6 +17,8 @@
 		8046163C253B8917006B9164 /* DrawerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8046163B253B8917006B9164 /* DrawerUITests.swift */; };
 		8046164E253E4534006B9164 /* DrawerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8046164D253E4534006B9164 /* DrawerTableViewController.swift */; };
 		80461656253E485E006B9164 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80461655253E485E006B9164 /* DatabaseManager.swift */; };
+		80963CA12548B7B900ADD4FB /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80963CA02548B7B900ADD4FB /* NetworkManager.swift */; };
+		80963CA62548C09200ADD4FB /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80963CA52548C09200ADD4FB /* Location.swift */; };
 		8098262D253F780B0012FEF3 /* DoodadDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8098262C253F780B0012FEF3 /* DoodadDetailViewController.swift */; };
 		80982634253F8BF00012FEF3 /* CreateDoodadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80982633253F8BF00012FEF3 /* CreateDoodadViewController.swift */; };
 		809EB3272541EBF7003F2786 /* AppColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809EB3262541EBF7003F2786 /* AppColorScheme.swift */; };
@@ -70,6 +72,8 @@
 		8046163D253B8917006B9164 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8046164D253E4534006B9164 /* DrawerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerTableViewController.swift; sourceTree = "<group>"; };
 		80461655253E485E006B9164 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		80963CA02548B7B900ADD4FB /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		80963CA52548C09200ADD4FB /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		8098262C253F780B0012FEF3 /* DoodadDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoodadDetailViewController.swift; sourceTree = "<group>"; };
 		80982633253F8BF00012FEF3 /* CreateDoodadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDoodadViewController.swift; sourceTree = "<group>"; };
 		809EB3262541EBF7003F2786 /* AppColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColorScheme.swift; sourceTree = "<group>"; };
@@ -146,6 +150,7 @@
 				8046165A253E54CC006B9164 /* Models */,
 				80461616253B8916006B9164 /* AppDelegate.swift */,
 				80A9D3FF2548A1EF00EA1B61 /* DoodadMapController.swift */,
+				80963CA52548C09200ADD4FB /* Location.swift */,
 				80461618253B8916006B9164 /* SceneDelegate.swift */,
 				8098262C253F780B0012FEF3 /* DoodadDetailViewController.swift */,
 				809EB3362542259C003F2786 /* DoodadCell.swift */,
@@ -157,6 +162,7 @@
 				80982633253F8BF00012FEF3 /* CreateDoodadViewController.swift */,
 				80AA468B25475B0B00826D04 /* UIImage+.swift */,
 				8046161C253B8916006B9164 /* Main.storyboard */,
+				80963CA02548B7B900ADD4FB /* NetworkManager.swift */,
 				80AA46952547715500826D04 /* ProjectDetailViewController.swift */,
 				80461622253B8917006B9164 /* Assets.xcassets */,
 				80461624253B8917006B9164 /* LaunchScreen.storyboard */,
@@ -486,6 +492,8 @@
 				80AA467F25427DFB00826D04 /* ProjectCell.swift in Sources */,
 				80982634253F8BF00012FEF3 /* CreateDoodadViewController.swift in Sources */,
 				80A9D4002548A1EF00EA1B61 /* DoodadMapController.swift in Sources */,
+				80963CA12548B7B900ADD4FB /* NetworkManager.swift in Sources */,
+				80963CA62548C09200ADD4FB /* Location.swift in Sources */,
 				80AA46962547715500826D04 /* ProjectDetailViewController.swift in Sources */,
 				8098262D253F780B0012FEF3 /* DoodadDetailViewController.swift in Sources */,
 				80461621253B8916006B9164 /* Drawer.xcdatamodeld in Sources */,

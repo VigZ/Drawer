@@ -28,6 +28,25 @@ class DoodadMapController: UIViewController {
 
     }
     
+    func fetchWithSearchTerm(_ url: URL){
+        URLSession.shared.dataTask(with: url){ data, response, error in
+            if let error = error {
+                
+            }
+            else if let data = data {
+                let decoder = JSONDecoder()
+                
+                do {
+                    let location = try decoder.decode(Location.self, from: data)
+                }
+                catch {
+                    
+                }
+            }
+            
+        }.resume()
+    }
+    
 
     /*
     // MARK: - Navigation
