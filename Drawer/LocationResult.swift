@@ -1,5 +1,5 @@
 //
-//  Location.swift
+//  LocationResult.swift
 //  Drawer
 //
 //  Created by Kyle on 10/27/20.
@@ -8,8 +8,8 @@
 import Foundation
 import UIKit
 
-// MARK: - Result
-struct Result: Codable {
+// MARK: - LocationResult
+struct LocationResult: Codable {
     let geometry: Geometry
     let icon: String
     let id, name: String
