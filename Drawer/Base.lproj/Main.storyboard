@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Gqq-id-iY1">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -349,6 +349,22 @@
             </objects>
             <point key="canvasLocation" x="2547.826086956522" y="512.94642857142856"/>
         </scene>
+        <!--Doodad Map Controller-->
+        <scene sceneID="4jb-FA-IIf">
+            <objects>
+                <viewController storyboardIdentifier="DoodadMap" id="27j-9w-iUQ" customClass="DoodadMapController" customModule="Drawer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7e4-GR-V7c">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="tAr-v2-awb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="SCw-eN-myH"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZKa-BE-4by" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1674" y="1203"/>
+        </scene>
         <!--Create Project View Controller-->
         <scene sceneID="Tjb-Ux-huU">
             <objects>
@@ -470,6 +486,7 @@
                     <connections>
                         <segue destination="H7s-EJ-MM5" kind="relationship" relationship="viewControllers" id="Am9-Wk-0fg"/>
                         <segue destination="Quy-2s-9Go" kind="relationship" relationship="viewControllers" id="ak7-Jj-yh9"/>
+                        <segue destination="Qi0-Sf-Qys" kind="relationship" relationship="viewControllers" id="3tH-c1-JRI"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wvy-Kt-1S7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -497,11 +514,32 @@
             </objects>
             <point key="canvasLocation" x="764" y="516"/>
         </scene>
+        <!--Find-->
+        <scene sceneID="ERi-3s-cpg">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Qi0-Sf-Qys" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Find" image="map" catalog="system" selectedImage="map.fill" id="h1X-Bq-bQr"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2Eg-G2-w3Y">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="27j-9w-iUQ" kind="relationship" relationship="rootViewController" id="EL9-xz-LT1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LDW-Ar-hZS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="764" y="1203"/>
+        </scene>
     </scenes>
     <color key="tintColor" red="0.36862745098039218" green="0.3529411764705882" blue="0.1803921568627451" alpha="0.8476027397260274" colorSpace="calibratedRGB"/>
     <resources>
         <image name="hammer" catalog="system" width="128" height="117"/>
         <image name="hammer.fill" catalog="system" width="128" height="117"/>
+        <image name="map" catalog="system" width="128" height="110"/>
+        <image name="map.fill" catalog="system" width="128" height="110"/>
         <image name="product-placeholder" width="1182" height="1182"/>
         <image name="tray.full" catalog="system" width="128" height="88"/>
         <image name="tray.full.fill" catalog="system" width="128" height="88"/>

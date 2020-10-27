@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,6 +21,7 @@
 		80982634253F8BF00012FEF3 /* CreateDoodadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80982633253F8BF00012FEF3 /* CreateDoodadViewController.swift */; };
 		809EB3272541EBF7003F2786 /* AppColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809EB3262541EBF7003F2786 /* AppColorScheme.swift */; };
 		809EB3372542259C003F2786 /* DoodadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809EB3362542259C003F2786 /* DoodadCell.swift */; };
+		80A9D4002548A1EF00EA1B61 /* DoodadMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A9D3FF2548A1EF00EA1B61 /* DoodadMapController.swift */; };
 		80AA466A2542727900826D04 /* ProjectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AA46692542727800826D04 /* ProjectTableViewController.swift */; };
 		80AA467F25427DFB00826D04 /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AA467E25427DFB00826D04 /* ProjectCell.swift */; };
 		80AA468C25475B0B00826D04 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AA468B25475B0B00826D04 /* UIImage+.swift */; };
@@ -73,6 +74,7 @@
 		80982633253F8BF00012FEF3 /* CreateDoodadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDoodadViewController.swift; sourceTree = "<group>"; };
 		809EB3262541EBF7003F2786 /* AppColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColorScheme.swift; sourceTree = "<group>"; };
 		809EB3362542259C003F2786 /* DoodadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DoodadCell.swift; path = Drawer/DoodadCell.swift; sourceTree = SOURCE_ROOT; };
+		80A9D3FF2548A1EF00EA1B61 /* DoodadMapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoodadMapController.swift; sourceTree = "<group>"; };
 		80AA46692542727800826D04 /* ProjectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTableViewController.swift; sourceTree = "<group>"; };
 		80AA467E25427DFB00826D04 /* ProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCell.swift; sourceTree = "<group>"; };
 		80AA468B25475B0B00826D04 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				8046165B253E54DB006B9164 /* Views */,
 				8046165A253E54CC006B9164 /* Models */,
 				80461616253B8916006B9164 /* AppDelegate.swift */,
+				80A9D3FF2548A1EF00EA1B61 /* DoodadMapController.swift */,
 				80461618253B8916006B9164 /* SceneDelegate.swift */,
 				8098262C253F780B0012FEF3 /* DoodadDetailViewController.swift */,
 				809EB3362542259C003F2786 /* DoodadCell.swift */,
@@ -228,7 +231,6 @@
 				8F44546B3326550A2B944580 /* Pods-DrawerTests.debug.xcconfig */,
 				33F3A7F6AF9225DAE507E93E /* Pods-DrawerTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -483,6 +485,7 @@
 				809EB3372542259C003F2786 /* DoodadCell.swift in Sources */,
 				80AA467F25427DFB00826D04 /* ProjectCell.swift in Sources */,
 				80982634253F8BF00012FEF3 /* CreateDoodadViewController.swift in Sources */,
+				80A9D4002548A1EF00EA1B61 /* DoodadMapController.swift in Sources */,
 				80AA46962547715500826D04 /* ProjectDetailViewController.swift in Sources */,
 				8098262D253F780B0012FEF3 /* DoodadDetailViewController.swift in Sources */,
 				80461621253B8916006B9164 /* Drawer.xcdatamodeld in Sources */,
