@@ -30,12 +30,17 @@ class DoodadMapController: UIViewController, UISearchControllerDelegate {
        
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
+        
         locationManager.requestLocation()
         
         searchController.obscuresBackgroundDuringPresentation = false
         navigationItem.searchController = searchController
         definesPresentationContext = true
         
+        
+        if let location = locationManager.location {
+            setUpMap(location: location)
+        }
         
 
         
@@ -103,19 +108,35 @@ extension DoodadMapController : CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         // .requestLocation will only pass one location to the locations array
         // hence we can access it by taking the first element of the array
+        
         if let location = locations.first {
+            
             // Setup Map Marker with location coordinates
-            print(location.coordinate.latitude)
-            let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 6.0)
-            let mapView = GMSMapView.map(withFrame: self.view.frame, camera: camera)
-            self.googleMapView = mapView
+            setUpMap(location: location)
+            
 
-            // Creates a marker in the center of the map.
-            let marker = GMSMarker()
-            marker.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
-            marker.title = "Sydney"
-            marker.snippet = "Australia"
-            marker.map = mapView
+        }
+    }
+    
+    func setUpMap(location: CLLocation){
+        let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: 6.0)
+        let mapView = GMSMapView.map(withFrame: self.view.frame, camera: camera)
+        self.googleMapView = mapView
+
+        // Creates a marker for each nearby store
+//        let marker = GMSMarker()
+//        marker.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
+//        marker.title = "Sydney"
+//        marker.snippet = "Australia"
+//        marker.map = mapView
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedWhenInUse {
+            
+            if let location = manager.location {
+                setUpMap(location: location)
+            }
         }
     }
     
