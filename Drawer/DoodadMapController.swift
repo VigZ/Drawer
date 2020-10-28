@@ -9,7 +9,7 @@ import UIKit
 import GoogleMaps
 import CoreLocation
 
-class DoodadMapController: UIViewController, UISearchControllerDelegate {
+class DoodadMapController: UIViewController, UISearchControllerDelegate, GMSMapViewDelegate {
     
     var locations = [LocationResult]()
     
@@ -27,22 +27,25 @@ class DoodadMapController: UIViewController, UISearchControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+ 
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         
-        locationManager.requestLocation()
+        if CLLocationManager.locationServicesEnabled() {
+          locationManager.requestLocation()
+
+          googleMapView.isMyLocationEnabled = true
+          googleMapView.settings.myLocationButton = true
+          googleMapView.delegate = self
+            
+        } else {
+            
+          locationManager.requestWhenInUseAuthorization()
+        }
         
         searchController.obscuresBackgroundDuringPresentation = false
         navigationItem.searchController = searchController
         definesPresentationContext = true
-        
-        
-        if let location = locationManager.location {
-            setUpMap(location: location)
-        }
-        
-
         
 
     }
@@ -119,9 +122,10 @@ extension DoodadMapController : CLLocationManagerDelegate {
     }
     
     func setUpMap(location: CLLocation){
-        let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: 6.0)
-        let mapView = GMSMapView.map(withFrame: self.view.frame, camera: camera)
-        self.googleMapView = mapView
+        let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: 15)
+        self.googleMapView.camera = camera
+
+
 
         // Creates a marker for each nearby store
 //        let marker = GMSMarker()
