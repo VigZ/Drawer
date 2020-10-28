@@ -8,20 +8,33 @@
 import UIKit
 import GoogleMaps
 
-class DoodadMapController: UIViewController {
+class DoodadMapController: UIViewController, UISearchControllerDelegate {
     
     var locations = [LocationResult]()
     
-    let apiUrl = URL(string:"https://maps.googleapis.com/maps/api/place/textsearch/json?query=pipe+cleaners&key=AIzaSyBe9D5zAvMOxnqYwZygvLZ1USCG--IDjvU")
+    @IBOutlet weak var googleMapView: GMSMapView!
+    
+    let searchController = UISearchController(searchResultsController: nil)
+    
+    var queryString: String = ""
+    
+    var isSearchBarEmpty: Bool {
+      return searchController.searchBar.text?.isEmpty ?? true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         // Create a GMSCameraPosition that tells the map to display the
         // coordinate -33.86,151.20 at zoom level 6.
+        
+        searchController.obscuresBackgroundDuringPresentation = false
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        
         let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 6.0)
         let mapView = GMSMapView.map(withFrame: self.view.frame, camera: camera)
-        self.view.addSubview(mapView)
+        self.googleMapView = mapView
 
         // Creates a marker in the center of the map.
         let marker = GMSMarker()
@@ -30,7 +43,6 @@ class DoodadMapController: UIViewController {
         marker.snippet = "Australia"
         marker.map = mapView
         
-        fetchLocations(apiUrl!)
 
     }
     
@@ -60,7 +72,15 @@ class DoodadMapController: UIViewController {
         }.resume()
     }
     
-
+    func createApiURL(queryString: String) -> URL{
+        let apiString = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=\(queryString)&key=AIzaSyBe9D5zAvMOxnqYwZygvLZ1USCG--IDjvU"
+        return URL(string: apiString)!
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        fetchLocations(createApiURL(queryString: queryString))
+    }
     /*
     // MARK: - Navigation
 
@@ -71,4 +91,12 @@ class DoodadMapController: UIViewController {
     }
     */
 
+}
+
+extension DoodadMapController: UISearchResultsUpdating {
+  func updateSearchResults(for searchController: UISearchController) {
+    
+    let searchBar = searchController.searchBar
+//    filterContentForSearchText(searchBar.text!)
+  }
 }

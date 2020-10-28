@@ -356,14 +356,24 @@
                     <view key="view" contentMode="scaleToFill" id="7e4-GR-V7c">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MNH-np-JPD" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="tAr-v2-awb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="SCw-eN-myH"/>
+                    <connections>
+                        <outlet property="googleMapView" destination="MNH-np-JPD" id="hG3-VZ-yFS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZKa-BE-4by" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1674" y="1203"/>
+            <point key="canvasLocation" x="1673.913043478261" y="1202.6785714285713"/>
         </scene>
         <!--Create Project View Controller-->
         <scene sceneID="Tjb-Ux-huU">
