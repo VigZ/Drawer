@@ -89,9 +89,23 @@ class DoodadMapController: UIViewController, UISearchControllerDelegate, GMSMapV
             
             marker.position = CLLocationCoordinate2D(latitude: lat, longitude: long)
             marker.title = resultLocation.name
-            marker.snippet = resultLocation.reference?.description
+            marker.snippet = resultLocation.formattedAddress
             marker.appearAnimation = GMSMarkerAnimation.pop
+            marker.icon = GMSMarker.markerImage(with: .systemYellow)
             marker.map = googleMapView
+            
+            var priceString = ""
+            if let priceLevel = resultLocation.priceLevel {
+                for n in 0...4 {
+                    if n < priceLevel {
+                        priceString += "$"
+                    }
+                    else {
+                        priceString += "O"
+                    }
+                }
+            }
+            marker.snippet! += " \(priceString)"
         }
     }
     

@@ -19,6 +19,8 @@ struct LocationResponse: Codable {
 
 // MARK: - LocationResult
 struct LocationResult: Codable {
+    let formattedAddress: String?
+    let priceLevel: Int?
     let geometry: Geometry?
     let icon: String?
     let id, name: String?
@@ -31,6 +33,8 @@ struct LocationResult: Codable {
     enum CodingKeys: String, CodingKey {
         case geometry, icon, id, name
         case openingHours = "opening_hours"
+        case formattedAddress = "formatted_address"
+        case priceLevel = "price_level"
         case photos
         case placeID = "place_id"
         case reference, types, vicinity
