@@ -123,16 +123,20 @@ extension DoodadMapController : CLLocationManagerDelegate {
     
     func setUpMap(location: CLLocation){
         let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: 15)
-        self.googleMapView.camera = camera
+        googleMapView.camera = camera
 
 
+        for location in locations {
+            guard let lat = location.geometry?.location?.lat, let long = location.geometry?.location?.lng else { return }
+            
+            let marker = GMSMarker()
+            
+            marker.position = CLLocationCoordinate2D(latitude: lat, longitude: long)
+            marker.title = location.name
+            marker.snippet = location.reference?.description
+            marker.map = googleMapView
+        }
 
-        // Creates a marker for each nearby store
-//        let marker = GMSMarker()
-//        marker.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
-//        marker.title = "Sydney"
-//        marker.snippet = "Australia"
-//        marker.map = mapView
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
