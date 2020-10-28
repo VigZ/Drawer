@@ -9,15 +9,20 @@ import UIKit
 import GoogleMaps
 import CoreLocation
 
-class DoodadMapController: UIViewController, UISearchControllerDelegate, GMSMapViewDelegate {
+class DoodadMapController: UIViewController, UISearchControllerDelegate, GMSMapViewDelegate, UISearchBarDelegate {
     
-    var locations = [LocationResult]()
+    var locations = [LocationResult]() {
+        didSet {
+            DispatchQueue.main.async {
+                self.googleMapView.clear()
+                self.createMapMarkers()
+            }
+        }
+    }
     
     @IBOutlet weak var googleMapView: GMSMapView!
     
     let searchController = UISearchController(searchResultsController: nil)
-    
-    var queryString: String = ""
     
     var isSearchBarEmpty: Bool {
       return searchController.searchBar.text?.isEmpty ?? true
@@ -44,6 +49,7 @@ class DoodadMapController: UIViewController, UISearchControllerDelegate, GMSMapV
         }
         
         searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.delegate = self
         navigationItem.searchController = searchController
         definesPresentationContext = true
         
@@ -51,10 +57,11 @@ class DoodadMapController: UIViewController, UISearchControllerDelegate, GMSMapV
     }
     
     func fetchLocations(_ url: URL){
+        
         URLSession.shared.dataTask(with: url){ [weak self] data, response, error in
             
             if let error = error {
-                
+                print(error)
             }
             else if let data = data {
                 let decoder = JSONDecoder()
@@ -63,22 +70,48 @@ class DoodadMapController: UIViewController, UISearchControllerDelegate, GMSMapV
                     return
                 }
                 if let self = self {
+                    
                     self.locations = results
                 }
                 
             }
             
         }.resume()
-    }
-    
-    func createApiURL(queryString: String) -> URL{
-        let apiString = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=\(queryString)&key=AIzaSyBe9D5zAvMOxnqYwZygvLZ1USCG--IDjvU"
-        return URL(string: apiString)!
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        fetchLocations(createApiURL(queryString: queryString))
+    func createMapMarkers() {
+        
+        for resultLocation in locations {
+            guard let lat = resultLocation.geometry?.location?.lat, let long = resultLocation.geometry?.location?.lng else { return }
+            
+            let marker = GMSMarker()
+            
+            marker.position = CLLocationCoordinate2D(latitude: lat, longitude: long)
+            marker.title = resultLocation.name
+            marker.snippet = resultLocation.reference?.description
+            marker.appearAnimation = GMSMarkerAnimation.pop
+            marker.map = googleMapView
+        }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        guard let searchTerm = searchBar.text else {
+            locations = []
+            return
+        }
+        
+        let apiURL = createApiURL(queryString: searchTerm)
+        fetchLocations(apiURL)
+    }
+    
+    func createApiURL(queryString: String) -> URL{
+        let newString = queryString.replacingOccurrences(of: " ", with: "+")
+        let apiString = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=\(newString)&key=AIzaSyBe9D5zAvMOxnqYwZygvLZ1USCG--IDjvU"
+        
+        return URL(string: apiString)!
+        
     }
     /*
     // MARK: - Navigation
@@ -92,13 +125,13 @@ class DoodadMapController: UIViewController, UISearchControllerDelegate, GMSMapV
 
 }
 
-extension DoodadMapController: UISearchResultsUpdating {
-  func updateSearchResults(for searchController: UISearchController) {
-    
-    let searchBar = searchController.searchBar
-//   update map markers
-  }
-}
+//extension DoodadMapController: UISearchResultsUpdating {
+//  func updateSearchResults(for searchController: UISearchController) {
+//
+//    let searchBar = searchController.searchBar
+//    createMapMarkers()
+//  }
+//}
 
 extension DoodadMapController : CLLocationManagerDelegate {
     // called when the authorization status is changed for the core location permission
@@ -124,18 +157,7 @@ extension DoodadMapController : CLLocationManagerDelegate {
     func setUpMap(location: CLLocation){
         let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: 15)
         googleMapView.camera = camera
-
-
-        for location in locations {
-            guard let lat = location.geometry?.location?.lat, let long = location.geometry?.location?.lng else { return }
-            
-            let marker = GMSMarker()
-            
-            marker.position = CLLocationCoordinate2D(latitude: lat, longitude: long)
-            marker.title = location.name
-            marker.snippet = location.reference?.description
-            marker.map = googleMapView
-        }
+        createMapMarkers()
 
     }
     
