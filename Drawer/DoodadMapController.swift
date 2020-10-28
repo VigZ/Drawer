@@ -7,6 +7,7 @@
 
 import UIKit
 import GoogleMaps
+import CoreLocation
 
 class DoodadMapController: UIViewController, UISearchControllerDelegate {
     
@@ -22,26 +23,21 @@ class DoodadMapController: UIViewController, UISearchControllerDelegate {
       return searchController.searchBar.text?.isEmpty ?? true
     }
     
+    let locationManager = CLLocationManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        // Create a GMSCameraPosition that tells the map to display the
-        // coordinate -33.86,151.20 at zoom level 6.
+       
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation()
         
         searchController.obscuresBackgroundDuringPresentation = false
         navigationItem.searchController = searchController
         definesPresentationContext = true
         
-        let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 6.0)
-        let mapView = GMSMapView.map(withFrame: self.view.frame, camera: camera)
-        self.googleMapView = mapView
+        
 
-        // Creates a marker in the center of the map.
-        let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
-        marker.title = "Sydney"
-        marker.snippet = "Australia"
-        marker.map = mapView
         
 
     }
@@ -53,9 +49,6 @@ class DoodadMapController: UIViewController, UISearchControllerDelegate {
                 
             }
             else if let data = data {
-//                if let json = try? JSONSerialization.jsonObject(with: data, options: []) {
-//                    print(json)
-//                }
                 let decoder = JSONDecoder()
                 let response = try? decoder.decode(LocationResponse.self, from: data)
                 guard let results = response?.results else {
@@ -63,9 +56,7 @@ class DoodadMapController: UIViewController, UISearchControllerDelegate {
                 }
                 if let self = self {
                     self.locations = results
-
                 }
-                
                 
             }
             
@@ -97,6 +88,38 @@ extension DoodadMapController: UISearchResultsUpdating {
   func updateSearchResults(for searchController: UISearchController) {
     
     let searchBar = searchController.searchBar
-//    filterContentForSearchText(searchBar.text!)
+//   update map markers
   }
+}
+
+extension DoodadMapController : CLLocationManagerDelegate {
+    // called when the authorization status is changed for the core location permission
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager){
+        
+        locationManager.requestLocation()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        // .requestLocation will only pass one location to the locations array
+        // hence we can access it by taking the first element of the array
+        if let location = locations.first {
+            // Setup Map Marker with location coordinates
+            print(location.coordinate.latitude)
+            let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 6.0)
+            let mapView = GMSMapView.map(withFrame: self.view.frame, camera: camera)
+            self.googleMapView = mapView
+
+            // Creates a marker in the center of the map.
+            let marker = GMSMarker()
+            marker.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
+            marker.title = "Sydney"
+            marker.snippet = "Australia"
+            marker.map = mapView
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+    }
 }
