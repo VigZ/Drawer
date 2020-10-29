@@ -35,7 +35,6 @@ class DoodadDetailViewController: UIViewController {
         else {
             imageView.image = UIImage(named: "product-placeholder")
         }
-        
     }
     
 

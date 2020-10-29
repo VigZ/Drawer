@@ -14,6 +14,8 @@ class CreateProjectViewController: UIViewController, UITextFieldDelegate, UIText
     
     var doodads = [Doodad]()
     
+    var editedDoodads = [Doodad]()
+    
     var editMode: Bool = false
     
     let dbManager = DatabaseManager.shareInstance
@@ -117,6 +119,7 @@ class CreateProjectViewController: UIViewController, UITextFieldDelegate, UIText
         
 
     }
+    
     func addNewImage() {
         let picker = UIImagePickerController()
         picker.allowsEditing = true
@@ -154,7 +157,7 @@ class CreateProjectViewController: UIViewController, UITextFieldDelegate, UIText
         cell.nameLabel.text = doodad.value(forKeyPath: "name") as? String
         let quantity = doodad.value(forKeyPath:"quantity") as? Int
         if let quantity = quantity {
-            cell.quantityLabel.text = String(quantity)
+            cell.baseQuantity = quantity
 
         }
            
@@ -168,4 +171,9 @@ class CreateProjectViewController: UIViewController, UITextFieldDelegate, UIText
         doodadList.reloadData()
     }
 
+    @IBAction func decreaseCount(_ sender: Any) {
+    }
+    @IBAction func increaseCount(_ sender: Any) {
+    }
+    
 }

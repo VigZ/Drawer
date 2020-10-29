@@ -449,6 +449,7 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="increaseCount:" destination="4Zg-YU-4bT" eventType="touchUpInside" id="9VD-FE-hoo"/>
+                                                        <action selector="increaseCount:" destination="L3k-dN-QBG" eventType="touchUpInside" id="d0l-1g-uNM"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rPm-Iw-k83">
@@ -458,6 +459,7 @@
                                                         <color key="titleColor" systemColor="systemBlueColor"/>
                                                     </state>
                                                     <connections>
+                                                        <action selector="decreaseCount:" destination="L3k-dN-QBG" eventType="touchUpInside" id="F7Z-pc-edn"/>
                                                         <action selector="decreaseCount:" destination="4Zg-YU-4bT" eventType="touchUpInside" id="YQN-KF-f91"/>
                                                     </connections>
                                                 </button>
