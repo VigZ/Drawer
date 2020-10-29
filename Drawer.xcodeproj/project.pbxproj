@@ -30,6 +30,7 @@
 		80AA469125476D6700826D04 /* CreateProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AA469025476D6700826D04 /* CreateProjectViewController.swift */; };
 		80AA46962547715500826D04 /* ProjectDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AA46952547715500826D04 /* ProjectDetailViewController.swift */; };
 		80BEAA852548D44C00EA5A1E /* LocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BEAA842548D44C00EA5A1E /* LocationResponse.swift */; };
+		80F01754254B56AA00A7AFAE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 80F01753254B56AA00A7AFAE /* README.md */; };
 		837F523A3FE2B906F2A6798E /* Pods_DrawerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7923DD602BD8A209853CFFEF /* Pods_DrawerTests.framework */; };
 		9544CEC6EE6F46D9AF42CFC6 /* Pods_Drawer_DrawerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBB13D1EE682A719C62DB9C /* Pods_Drawer_DrawerUITests.framework */; };
 		CD26076D131281A26C1B9DB3 /* Pods_Drawer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FF276CE04F01E16EB3D66FF /* Pods_Drawer.framework */; };
@@ -86,6 +87,7 @@
 		80AA469025476D6700826D04 /* CreateProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProjectViewController.swift; sourceTree = "<group>"; };
 		80AA46952547715500826D04 /* ProjectDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailViewController.swift; sourceTree = "<group>"; };
 		80BEAA842548D44C00EA5A1E /* LocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationResponse.swift; sourceTree = "<group>"; };
+		80F01753254B56AA00A7AFAE /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8F44546B3326550A2B944580 /* Pods-DrawerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrawerTests.debug.xcconfig"; path = "Target Support Files/Pods-DrawerTests/Pods-DrawerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8FF276CE04F01E16EB3D66FF /* Pods_Drawer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Drawer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AC76AF7EA651839AC462B90 /* Pods-Drawer-DrawerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drawer-DrawerUITests.debug.xcconfig"; path = "Target Support Files/Pods-Drawer-DrawerUITests/Pods-Drawer-DrawerUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 		8046160A253B8916006B9164 = {
 			isa = PBXGroup;
 			children = (
+				80F01753254B56AA00A7AFAE /* README.md */,
 				80461615253B8916006B9164 /* Drawer */,
 				8046162F253B8917006B9164 /* DrawerTests */,
 				8046163A253B8917006B9164 /* DrawerUITests */,
@@ -419,6 +422,7 @@
 			files = (
 				80461626253B8917006B9164 /* LaunchScreen.storyboard in Resources */,
 				80461623253B8917006B9164 /* Assets.xcassets in Resources */,
+				80F01754254B56AA00A7AFAE /* README.md in Resources */,
 				8046161E253B8916006B9164 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
