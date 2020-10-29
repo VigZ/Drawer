@@ -17,6 +17,7 @@
 		8046163C253B8917006B9164 /* DrawerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8046163B253B8917006B9164 /* DrawerUITests.swift */; };
 		8046164E253E4534006B9164 /* DrawerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8046164D253E4534006B9164 /* DrawerTableViewController.swift */; };
 		80461656253E485E006B9164 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80461655253E485E006B9164 /* DatabaseManager.swift */; };
+		808BBBEC254A64AE0090AC2C /* ProjectDoodadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808BBBEB254A64AE0090AC2C /* ProjectDoodadCell.swift */; };
 		80963CA12548B7B900ADD4FB /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80963CA02548B7B900ADD4FB /* NetworkManager.swift */; };
 		8098262D253F780B0012FEF3 /* DoodadDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8098262C253F780B0012FEF3 /* DoodadDetailViewController.swift */; };
 		80982634253F8BF00012FEF3 /* CreateDoodadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80982633253F8BF00012FEF3 /* CreateDoodadViewController.swift */; };
@@ -72,6 +73,7 @@
 		8046163D253B8917006B9164 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8046164D253E4534006B9164 /* DrawerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerTableViewController.swift; sourceTree = "<group>"; };
 		80461655253E485E006B9164 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		808BBBEB254A64AE0090AC2C /* ProjectDoodadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDoodadCell.swift; sourceTree = "<group>"; };
 		80963CA02548B7B900ADD4FB /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		8098262C253F780B0012FEF3 /* DoodadDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoodadDetailViewController.swift; sourceTree = "<group>"; };
 		80982633253F8BF00012FEF3 /* CreateDoodadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDoodadViewController.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				80AA467E25427DFB00826D04 /* ProjectCell.swift */,
+				808BBBEB254A64AE0090AC2C /* ProjectDoodadCell.swift */,
 			);
 			path = Project;
 			sourceTree = "<group>";
@@ -560,6 +563,7 @@
 				80AA468C25475B0B00826D04 /* UIImage+.swift in Sources */,
 				80AA469125476D6700826D04 /* CreateProjectViewController.swift in Sources */,
 				80461617253B8916006B9164 /* AppDelegate.swift in Sources */,
+				808BBBEC254A64AE0090AC2C /* ProjectDoodadCell.swift in Sources */,
 				80461619253B8916006B9164 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

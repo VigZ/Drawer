@@ -6,12 +6,17 @@
 //
 
 import UIKit
+import CoreData
 
-class CreateProjectViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class CreateProjectViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource {
     
     var loadedProject: Project?
     
+    var doodads = [Doodad]()
+    
     var editMode: Bool = false
+    
+    let dbManager = DatabaseManager.shareInstance
     
     @IBOutlet weak var nameField: UITextField!
     
@@ -21,6 +26,7 @@ class CreateProjectViewController: UIViewController, UITextFieldDelegate, UIText
     @IBOutlet weak var createProject: UIButton!
     @IBOutlet weak var choosePhoto: UIButton!
     
+    @IBOutlet weak var doodadList: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         nameField.delegate = self
@@ -31,6 +37,9 @@ class CreateProjectViewController: UIViewController, UITextFieldDelegate, UIText
             nameField.isUserInteractionEnabled = false
             presetFields()
         }
+        doodadList.delegate = self
+        doodadList.dataSource = self
+        fetchDoodads()
 
     }
     
@@ -129,6 +138,34 @@ class CreateProjectViewController: UIViewController, UITextFieldDelegate, UIText
         if let imageData = loadedProject?.img {
             projectImage.image = UIImage(data: imageData)
         }
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return doodads.count
+    }
+
+    // Provide a cell object for each row.
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+       // Fetch a cell of the appropriate type.
+       let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectDoodadCell", for: indexPath) as! ProjectDoodadCell
+       
+        let doodad = doodads[indexPath.row]
+       // Configure the cell’s contents.
+        cell.nameLabel.text = doodad.value(forKeyPath: "name") as? String
+        let quantity = doodad.value(forKeyPath:"quantity") as? Int
+        if let quantity = quantity {
+            cell.quantityLabel.text = String(quantity)
+
+        }
+           
+       return cell
+    }
+    
+    func fetchDoodads(){
+        doodads = dbManager.fetchObjects(entityDescription: "Doodad").compactMap { $0 as? Doodad }
+        print(doodads.count)
+        
+        doodadList.reloadData()
     }
 
 }
