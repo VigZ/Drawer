@@ -76,7 +76,7 @@
 		8098262C253F780B0012FEF3 /* DoodadDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoodadDetailViewController.swift; sourceTree = "<group>"; };
 		80982633253F8BF00012FEF3 /* CreateDoodadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDoodadViewController.swift; sourceTree = "<group>"; };
 		809EB3262541EBF7003F2786 /* AppColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColorScheme.swift; sourceTree = "<group>"; };
-		809EB3362542259C003F2786 /* DoodadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DoodadCell.swift; path = Drawer/DoodadCell.swift; sourceTree = SOURCE_ROOT; };
+		809EB3362542259C003F2786 /* DoodadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DoodadCell.swift; path = Drawer/Models/Doodad/DoodadCell.swift; sourceTree = SOURCE_ROOT; };
 		80A9D3FF2548A1EF00EA1B61 /* DoodadMapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoodadMapController.swift; sourceTree = "<group>"; };
 		80AA46692542727800826D04 /* ProjectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTableViewController.swift; sourceTree = "<group>"; };
 		80AA467E25427DFB00826D04 /* ProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCell.swift; sourceTree = "<group>"; };
@@ -144,31 +144,20 @@
 		80461615253B8916006B9164 /* Drawer */ = {
 			isa = PBXGroup;
 			children = (
+				808BBBDF254A43560090AC2C /* Managers */,
+				808BBBDE254A43320090AC2C /* Extensions */,
 				80982639254117F40012FEF3 /* Protocols */,
 				8046165C253E54E5006B9164 /* Controllers */,
 				8046165B253E54DB006B9164 /* Views */,
 				8046165A253E54CC006B9164 /* Models */,
 				80461616253B8916006B9164 /* AppDelegate.swift */,
-				80A9D3FF2548A1EF00EA1B61 /* DoodadMapController.swift */,
-				80BEAA842548D44C00EA5A1E /* LocationResponse.swift */,
 				80461618253B8916006B9164 /* SceneDelegate.swift */,
-				8098262C253F780B0012FEF3 /* DoodadDetailViewController.swift */,
-				809EB3362542259C003F2786 /* DoodadCell.swift */,
-				80AA467E25427DFB00826D04 /* ProjectCell.swift */,
-				80AA46692542727800826D04 /* ProjectTableViewController.swift */,
-				80AA469025476D6700826D04 /* CreateProjectViewController.swift */,
-				8046164D253E4534006B9164 /* DrawerTableViewController.swift */,
 				809EB3262541EBF7003F2786 /* AppColorScheme.swift */,
-				80982633253F8BF00012FEF3 /* CreateDoodadViewController.swift */,
-				80AA468B25475B0B00826D04 /* UIImage+.swift */,
 				8046161C253B8916006B9164 /* Main.storyboard */,
-				80963CA02548B7B900ADD4FB /* NetworkManager.swift */,
-				80AA46952547715500826D04 /* ProjectDetailViewController.swift */,
 				80461622253B8917006B9164 /* Assets.xcassets */,
 				80461624253B8917006B9164 /* LaunchScreen.storyboard */,
 				80461627253B8917006B9164 /* Info.plist */,
 				8046161F253B8916006B9164 /* Drawer.xcdatamodeld */,
-				80461655253E485E006B9164 /* DatabaseManager.swift */,
 			);
 			path = Drawer;
 			sourceTree = "<group>";
@@ -194,6 +183,9 @@
 		8046165A253E54CC006B9164 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				808BBBDD254A42F50090AC2C /* Map */,
+				808BBBD9254A42D00090AC2C /* Project */,
+				808BBBD8254A42C40090AC2C /* Doodad */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -208,9 +200,70 @@
 		8046165C253E54E5006B9164 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				808BBBD1254A42680090AC2C /* Map */,
+				808BBBD0254A424F0090AC2C /* Project */,
 				809EB322254124FF003F2786 /* Doodad */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		808BBBD0254A424F0090AC2C /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				80AA46952547715500826D04 /* ProjectDetailViewController.swift */,
+				80AA469025476D6700826D04 /* CreateProjectViewController.swift */,
+				80AA46692542727800826D04 /* ProjectTableViewController.swift */,
+			);
+			path = Project;
+			sourceTree = "<group>";
+		};
+		808BBBD1254A42680090AC2C /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				80A9D3FF2548A1EF00EA1B61 /* DoodadMapController.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		808BBBD8254A42C40090AC2C /* Doodad */ = {
+			isa = PBXGroup;
+			children = (
+				809EB3362542259C003F2786 /* DoodadCell.swift */,
+			);
+			path = Doodad;
+			sourceTree = "<group>";
+		};
+		808BBBD9254A42D00090AC2C /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				80AA467E25427DFB00826D04 /* ProjectCell.swift */,
+			);
+			path = Project;
+			sourceTree = "<group>";
+		};
+		808BBBDD254A42F50090AC2C /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				80BEAA842548D44C00EA5A1E /* LocationResponse.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		808BBBDE254A43320090AC2C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				80AA468B25475B0B00826D04 /* UIImage+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		808BBBDF254A43560090AC2C /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				80461655253E485E006B9164 /* DatabaseManager.swift */,
+				80963CA02548B7B900ADD4FB /* NetworkManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		80982639254117F40012FEF3 /* Protocols */ = {
@@ -223,6 +276,9 @@
 		809EB322254124FF003F2786 /* Doodad */ = {
 			isa = PBXGroup;
 			children = (
+				80982633253F8BF00012FEF3 /* CreateDoodadViewController.swift */,
+				8046164D253E4534006B9164 /* DrawerTableViewController.swift */,
+				8098262C253F780B0012FEF3 /* DoodadDetailViewController.swift */,
 			);
 			path = Doodad;
 			sourceTree = "<group>";
